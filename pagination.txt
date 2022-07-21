@@ -1,0 +1,30 @@
+how to do pagination using Default method
+
+
+Add 2 nuget package
+pagedlist.core 
+x.pagedList.mvc.core
+
+
+1.
+@model X.PagedList.IPagedList<Asp.net_student.Models.Student>
+@using X.PagedList.Mvc.Core;
+2. Add First() to All DisplayNameFor
+  <th>
+       @Html.DisplayNameFor(model => model.First().Name)
+           </th>
+2.At end of table tag
+
+    @Html.PagedListPager(Model, page => Url.Action("index", "Students", new { page }))
+
+
+3. At Student controller - Index method
+
+public IActionResult index(int? page)
+
+{
+var students=_repo.index();
+return view (students.ToPagedList(page ?? 1,5));
+}
+
+4.hover ToPagedList and add x.PagedList package
