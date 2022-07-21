@@ -1,0 +1,57 @@
+﻿@model Asp.net_student.Models.Student
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        @using (Html.BeginForm("Edit", "Students", FormMethod.Post))
+        {
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.EditorFor(m => m.Name)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Age)
+                @Html.EditorFor(m => m.Age)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.DepartmentId)
+                @Html.EditorFor(m => m.DepartmentId)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Phone)
+                @Html.EditorFor(m => m.Phone)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.country)
+                @Html.EditorFor(m => m.country)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Gender)
+                @Html.EditorFor(m => m.Gender)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.EnrollmentDate)
+                @Html.EditorFor(m => m.EnrollmentDate)
+            </div>
+            
+
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
